@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop - Little BitMining | Bitcoin Mining Hardware India</title>
+<meta name="description" content="Buy Bitcoin mining hardware in India. Antminer S21, S23, Whatsminer, Bitaxe and accessories. Expert support, pan-India delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080d14;--bg-2:#0d1520;--bg-3:#111c2e;--bg-card:#0f1825;
+  --border:rgba(255,255,255,0.07);--border-md:rgba(255,255,255,0.13);--border-hi:rgba(255,255,255,0.22);
+  --accent:#2E7FE8;--accent-2:#5B9EF0;--accent-dim:rgba(46,127,232,0.10);--accent-glow:rgba(46,127,232,0.20);
+  --amber:#F59E0B;--amber-dim:rgba(245,158,11,0.10);
+  --green:#10B981;--green-dim:rgba(16,185,129,0.10);
+  --red:#EF4444;--red-dim:rgba(239,68,68,0.10);
+  --white:#fff;--t1:rgba(255,255,255,0.92);--t2:rgba(255,255,255,0.55);--t3:rgba(255,255,255,0.28);
+  --font:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(8,13,20,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 48px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:30px;border-radius:4px}
+.nav-logo-text{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--t1)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:13px;color:var(--t2);transition:color 0.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--t1)}
+.nav-cta{font-family:var(--font);font-size:12.5px;font-weight:500;padding:7px 16px;border-radius:6px;background:var(--accent);color:var(--white);border:none;cursor:pointer;transition:background 0.15s,box-shadow 0.15s;text-decoration:none;display:inline-block}
+.nav-cta:hover{background:#1a6fd4;box-shadow:0 0 16px rgba(46,127,232,0.35)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--t2)}
+.mobile-menu{display:none;position:absolute;top:62px;left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--border);padding:8px 24px 16px;flex-direction:column;z-index:199}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:14px;color:var(--t2);padding:11px 0;border-bottom:1px solid var(--border)}
+
+/* PAGE HEADER */
+.page-header{padding:52px 48px 0;max-width:1280px;margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';display:block;width:16px;height:1px;background:var(--accent);opacity:0.6}
+.page-header h1{font-size:clamp(26px,3vw,38px);font-weight:300;color:var(--white);letter-spacing:-0.02em;margin-bottom:8px}
+.page-header p{font-size:14.5px;color:var(--t2);font-weight:300;max-width:540px;line-height:1.7}
+
+/* FILTER BAR */
+.filter-bar{position:sticky;top:62px;z-index:100;background:rgba(8,13,20,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 48px}
+.filter-bar-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;padding:12px 0}
+.filter-bar-inner::-webkit-scrollbar{display:none}
+.f-btn{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:7px 18px;border-radius:20px;background:transparent;border:1px solid transparent;color:var(--t3);cursor:pointer;transition:all 0.15s;white-space:nowrap;flex-shrink:0}
+.f-btn:hover{color:var(--t2);border-color:var(--border-md)}
+.f-btn.active{background:var(--accent-dim);border-color:rgba(46,127,232,0.3);color:var(--accent-2)}
+.f-divider{width:1px;height:20px;background:var(--border);margin:0 8px;flex-shrink:0}
+
+/* SHOP LAYOUT */
+.shop-wrap{max-width:1280px;margin:0 auto;padding:40px 48px 80px}
+
+/* CATEGORY HEADING */
+.cat-heading{display:flex;align-items:baseline;gap:12px;margin:40px 0 20px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.cat-heading:first-child{margin-top:0}
+.cat-heading h2{font-size:16px;font-weight:500;color:var(--t1);letter-spacing:0.01em}
+.cat-heading span{font-family:var(--mono);font-size:11px;color:var(--t3)}
+
+/* PRODUCT GRID */
+.p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:8px}
+
+/* PRODUCT CARD */
+.p-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column;position:relative}
+.p-card:hover{border-color:rgba(46,127,232,0.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(46,127,232,0.1)}
+
+/* PRODUCT IMAGE */
+.p-img-wrap{width:100%;aspect-ratio:16/10;background:var(--bg-2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.p-img-wrap img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform 0.3s}
+.p-card:hover .p-img-wrap img{transform:scale(1.04)}
+.p-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--t3);width:100%;height:100%}
+.p-img-placeholder svg{opacity:0.2}
+.p-img-placeholder span{font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;opacity:0.35}
+
+/* BADGES */
+.p-badges{position:absolute;top:10px;left:10px;display:flex;flex-wrap:wrap;gap:5px;z-index:1}
+.badge{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.b-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(16,185,129,0.25)}
+.b-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
+.b-blue{background:var(--accent-dim);color:var(--accent-2);border:1px solid rgba(46,127,232,0.25)}
+.b-red{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.b-purple{background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.25)}
+
+/* CARD BODY */
+.p-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.p-brand{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px}
+.p-name{font-size:15px;font-weight:500;color:var(--t1);margin-bottom:6px;line-height:1.3}
+.p-tagline{font-size:12.5px;color:var(--t2);line-height:1.55;margin-bottom:14px;font-weight:300;flex:1}
+.p-specs-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.p-spec-pill{font-family:var(--mono);font-size:11px;color:var(--t2);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:4px;padding:3px 8px;white-space:nowrap}
+.p-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid var(--border)}
+.p-price{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--white);line-height:1.2}
+.p-price.contact-price{font-size:12px;color:var(--t2);font-weight:400}
+.view-btn{font-family:var(--font);font-size:12px;font-weight:500;padding:7px 14px;border-radius:6px;background:var(--accent-dim);color:var(--accent-2);border:1px solid rgba(46,127,232,0.25);cursor:pointer;transition:all 0.15s;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.view-btn:hover{background:rgba(46,127,232,0.18);border-color:var(--accent)}
+.view-btn svg{transition:transform 0.15s}
+.p-card:hover .view-btn svg{transform:translateX(2px)}
+
+/* SOLD OVERLAY */
+.sold-overlay{position:absolute;inset:0;background:rgba(8,13,20,0.6);display:flex;align-items:center;justify-content:center;z-index:2}
+.sold-tag{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--red);border:1px solid var(--red);padding:6px 14px;border-radius:4px;background:rgba(239,68,68,0.1)}
+
+/* SPARE PARTS & ACCESSORIES GRID - same card style */
+.acc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,8,14,0.85);z-index:500;backdrop-filter:blur(6px);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg-2);border:1px solid var(--border-md);border-radius:16px;width:100%;max-width:960px;margin:auto;position:relative;overflow:hidden;animation:modalIn 0.25s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;z-index:10}
+.modal-close:hover{background:rgba(255,255,255,0.1);color:var(--t1)}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr}
+.modal-img-side{background:var(--bg-3);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;min-height:320px;position:relative}
+.modal-img-side img{max-height:280px;object-fit:contain}
+.modal-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--t3)}
+.modal-badges{display:flex;gap:6px;flex-wrap:wrap;position:absolute;top:16px;left:16px}
+.modal-info-side{padding:36px;overflow-y:auto;max-height:80vh}
+.modal-brand{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.modal-name{font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--white);letter-spacing:-0.01em;margin-bottom:10px;line-height:1.25}
+.modal-tagline{font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:24px;font-weight:300}
+
+/* VARIANT */
+.variant-section{margin-bottom:20px}
+.variant-label{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+.variant-pills{display:flex;flex-wrap:wrap;gap:6px}
+.v-pill{font-family:var(--mono);font-size:12px;font-weight:500;padding:6px 14px;border-radius:6px;background:rgba(255,255,255,0.04);border:1px solid var(--border-md);color:var(--t2);cursor:pointer;transition:all 0.12s}
+.v-pill:hover{border-color:var(--accent);color:var(--accent-2)}
+.v-pill.selected{background:var(--accent-dim);border-color:rgba(46,127,232,0.4);color:var(--accent-2)}
+
+/* PRICE BLOCK */
+.price-block{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.price-block .price-main{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--white)}
+.price-block .price-note{font-family:var(--mono);font-size:10.5px;color:var(--t3);margin-top:3px}
+.price-block .price-contact{font-size:14px;color:var(--t2);font-weight:300}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.modal-actions .btn-wa,.modal-actions .btn-enquire{padding:10px 20px;font-size:13.5px}
+
+/* SPECS */
+.specs-heading{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.specs-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.specs-table tr{border-bottom:1px solid var(--border)}
+.specs-table tr:last-child{border-bottom:none}
+.specs-table td{padding:9px 0;font-size:13px;line-height:1.5}
+.specs-table td:first-child{font-family:var(--mono);font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:0.04em;width:45%;vertical-align:top;padding-right:12px}
+.specs-table td:last-child{color:var(--t1);font-weight:400}
+
+/* USE CASES */
+.use-cases{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.use-case-tag{font-size:12px;color:var(--t2);background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;padding:5px 12px}
+
+/* WHY BUY */
+.why-buy{background:var(--accent-dim);border:1px solid rgba(46,127,232,0.15);border-radius:8px;padding:16px;margin-bottom:20px}
+.why-buy p{font-size:13px;color:var(--t2);line-height:1.65;font-weight:300}
+.why-buy p strong{color:var(--accent-2);font-weight:500}
+
+/* BUTTONS */
+.btn-wa{font-family:var(--font);font-size:12.5px;font-weight:500;padding:8px 16px;border-radius:6px;background:#1da851;color:var(--white);border:none;cursor:pointer;transition:background 0.15s,box-shadow 0.15s;text-decoration:none;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.btn-wa:hover{background:#18923f;box-shadow:0 0 12px rgba(29,168,81,0.3)}
+.btn-enquire{font-family:var(--font);font-size:12.5px;font-weight:500;padding:8px 16px;border-radius:6px;background:var(--accent-dim);color:var(--accent-2);border:1px solid rgba(46,127,232,0.25);cursor:pointer;transition:all 0.15s;text-decoration:none;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.btn-enquire:hover{background:rgba(46,127,232,0.18);border-color:var(--accent)}
+
+/* HIDDEN SECTIONS */
+.cat-section{display:none}
+.cat-section.visible{display:block}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);background:var(--bg);padding:36px 48px}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-logo{display:flex;align-items:center;gap:8px}
+.footer-logo img{height:22px;border-radius:3px;opacity:0.7}
+.footer-logo-text{font-family:var(--mono);font-size:13px;color:var(--t2)}
+.footer-links{display:flex;gap:28px}
+.footer-links a{font-family:var(--mono);font-size:12px;color:var(--t3);transition:color 0.15s}
+.footer-links a:hover{color:var(--t1)}
+.footer-copy{font-family:var(--mono);font-size:11.5px;color:var(--t3)}
+.footer-gst{font-family:var(--mono);font-size:11px;color:var(--t3);text-align:center;padding-top:16px;border-top:1px solid var(--border);margin-top:16px;width:100%}
+
+/* RESPONSIVE */
+@media(max-width:960px){.modal-grid{grid-template-columns:1fr}.modal-img-side{min-height:220px;border-right:none;border-bottom:1px solid var(--border)}.modal-info-side{max-height:none}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links,.nav-cta{display:none}.hamburger{display:flex}.filter-bar{padding:0 20px}.page-header{padding:36px 20px 0}.shop-wrap{padding:24px 20px 60px}.p-grid,.acc-grid{grid-template-columns:1fr 1fr;gap:10px}footer{padding:28px 20px}.footer-inner{flex-direction:column;align-items:flex-start}.modal-overlay{padding:0;align-items:flex-end}.modal{border-radius:16px 16px 0 0;max-height:92vh;overflow-y:auto}}
+@media(max-width:480px){.p-grid,.acc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="LBM.jpeg" alt="Little BitMining">
+    <span class="nav-logo-text">LittleBitMining</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="index.html#consult">Consult</a></li>
+    <li><a href="index.html#learn">Learn</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="shop.html" onclick="toggleMenu()">Shop</a>
+  <a href="index.html#consult" onclick="toggleMenu()">Consult</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="eyebrow">Hardware catalogue</div>
+  <h1>Mining hardware, accessories and spare parts</h1>
+  <p>Every unit we sell is sourced, verified, and supported. Prices reflect current market rates and are confirmed at the time of order.</p>
+</div>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <button class="f-btn active" onclick="filter('all',this)">All products</button>
+    <div class="f-divider"></div>
+    <button class="f-btn" onclick="filter('s23',this)">S23 Series</button>
+    <button class="f-btn" onclick="filter('s21',this)">S21 Series</button>
+    <button class="f-btn" onclick="filter('s19',this)">S19 Series</button>
+    <button class="f-btn" onclick="filter('whatsminer',this)">Whatsminer</button>
+    <button class="f-btn" onclick="filter('altcoin',this)">Altcoin miners</button>
+    <div class="f-divider"></div>
+    <button class="f-btn" onclick="filter('solo',this)">Solo miners</button>
+    <button class="f-btn" onclick="filter('spareaccs',this)">Spare parts &amp; accessories</button>
+  </div>
+</div>
+
+<div class="shop-wrap">
+
+<!-- S23 SERIES -->
+<div class="cat-section visible" id="cat-s23">
+  <div class="cat-heading"><h2>Antminer S23 Series</h2><span>Latest generation · 3nm architecture</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('s23air')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>Antminer S23</span></div>
+        <div class="p-badges"><span class="badge b-green">Pre-Order</span><span class="badge b-blue">New gen</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S23</div>
+        <div class="p-tagline">Most efficient air-cooled Bitcoin miner ever built. 3nm chip architecture, record hashrate, substantially reduced power draw.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">318 TH/s</span><span class="p-spec-pill">3498W</span><span class="p-spec-pill">11 J/TH</span><span class="p-spec-pill">Air cooled</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s23hyd')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><path d="M14 40 Q24 36 34 40"/></svg><span>S23 Hyd</span></div>
+        <div class="p-badges"><span class="badge b-green">Pre-Order</span><span class="badge b-blue">Hydro</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S23 Hyd</div>
+        <div class="p-tagline">First Bitcoin miner to exceed 500 TH/s with sub-10 J/TH efficiency. Silent hydro operation for professional dense deployments.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">580 TH/s</span><span class="p-spec-pill">5510W</span><span class="p-spec-pill">9.5 J/TH</span><span class="p-spec-pill">Hydro</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s23hyd3u')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="6" width="40" height="36" rx="3"/><rect x="8" y="10" width="32" height="8" rx="1"/><rect x="8" y="22" width="32" height="8" rx="1"/><rect x="8" y="34" width="32" height="4" rx="1"/></svg><span>S23 Hyd 3U</span></div>
+        <div class="p-badges"><span class="badge b-green">Pre-Order</span><span class="badge b-purple">1.16 PH/s</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S23 Hyd 3U</div>
+        <div class="p-tagline">World's first single unit to break 1 petahash. Industrial-scale compute density for the most demanding deployments.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">1160 TH/s</span><span class="p-spec-pill">11020W</span><span class="p-spec-pill">9.5 J/TH</span><span class="p-spec-pill">3U Hydro</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s23imm')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/></svg><span>S23 Imm</span></div>
+        <div class="p-badges"><span class="badge b-green">Pre-Order</span><span class="badge b-blue">Immersion</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S23 Imm</div>
+        <div class="p-tagline">Immersion-cooled variant for operators with dielectric fluid infrastructure. Higher sustained hashrate in thermally dense setups.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">442 TH/s</span><span class="p-spec-pill">~4400W</span><span class="p-spec-pill">Immersion</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S21 SERIES -->
+<div class="cat-section visible" id="cat-s21">
+  <div class="cat-heading"><h2>Antminer S21 Series</h2><span>Current generation · SHA-256 · Air &amp; hydro variants</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('s21xp')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>S21 XP</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S21 XP</div>
+        <div class="p-tagline">Most efficient air-cooled miner in the S21 lineup. Best-in-class efficiency for operators in high electricity cost markets.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">270 TH/s</span><span class="p-spec-pill">3645W</span><span class="p-spec-pill">13.5 J/TH</span><span class="p-spec-pill">Air cooled</span></div>
+        <div class="p-footer"><div class="p-price">₹4,30,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s21proplus')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>S21 Pro+</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S21 Pro+</div>
+        <div class="p-tagline">High-performance air-cooled miner with two hashrate options. Strong ROI for buyers scaling from single units to small fleets.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">234T / 245T</span><span class="p-spec-pill">Air cooled</span><span class="p-spec-pill">SHA-256</span></div>
+        <div class="p-footer"><div class="p-price">From ₹3,00,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s21sold')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/></svg><span>Antminer S21</span></div>
+        <div class="p-badges"><span class="badge b-red">Sold out</span></div>
+        <div class="sold-overlay"><div class="sold-tag">Currently unavailable</div></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S21</div>
+        <div class="p-tagline">Standard S21 air-cooled model. Currently out of stock - register interest to be notified when available.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">200 TH/s</span><span class="p-spec-pill">3500W</span><span class="p-spec-pill">Air cooled</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Notify me</div><div class="view-btn">Register interest <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s21xphyd')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><path d="M14 40 Q24 36 34 40"/></svg><span>S21 XP Hyd</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Hydro</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S21 XP Hyd</div>
+        <div class="p-tagline">Hydro-cooled flagship of the S21 XP generation. 473 TH/s with silent operation for professional facilities.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">473 TH/s</span><span class="p-spec-pill">5676W</span><span class="p-spec-pill">Hydro</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s21plushyd')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><path d="M14 40 Q24 36 34 40"/></svg><span>S21+ Hyd</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Hydro</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S21+ Hyd</div>
+        <div class="p-tagline">Four hashrate configurations available. Flexible choice for operators building or scaling hydro-cooled setups.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">319T – 395T</span><span class="p-spec-pill">Hydro</span></div>
+        <div class="p-footer"><div class="p-price">From ₹3,50,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S19 SERIES -->
+<div class="cat-section visible" id="cat-s19">
+  <div class="cat-heading"><h2>Antminer S19 Series</h2><span>Previous generation · Strong value proposition</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('s19kpro')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>S19K Pro</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S19K Pro</div>
+        <div class="p-tagline">Most accessible entry into professional Bitcoin mining. Four hashrate variants to match any starting budget.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">105T – 120T</span><span class="p-spec-pill">Air cooled</span><span class="p-spec-pill">SHA-256</span></div>
+        <div class="p-footer"><div class="p-price">From ₹70,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('s19xpphyd')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><path d="M14 40 Q24 36 34 40"/></svg><span>S19 XP+ Hyd</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Hydro</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer S19 XP+ Hyd</div>
+        <div class="p-tagline">Hydro-cooled S19 generation at competitive pricing. Good value for operators already running hydro infrastructure.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">279T / 293T</span><span class="p-spec-pill">Hydro</span><span class="p-spec-pill">SHA-256</span></div>
+        <div class="p-footer"><div class="p-price">From ₹1,30,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHATSMINER -->
+<div class="cat-section visible" id="cat-whatsminer">
+  <div class="cat-heading"><h2>Whatsminer</h2><span>MicroBT · SHA-256 · Bitcoin</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('m31s')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>M31S</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">MicroBT</div>
+        <div class="p-name">Whatsminer M31S</div>
+        <div class="p-tagline">Reliable mid-range Bitcoin miner from MicroBT. Proven workhorse with solid after-market support and manufacturer diversity.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">82 TH/s</span><span class="p-spec-pill">SHA-256</span><span class="p-spec-pill">Air cooled</span></div>
+        <div class="p-footer"><div class="p-price">₹1,50,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('m30splus')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>M30S+</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">MicroBT</div>
+        <div class="p-name">Whatsminer M30S+</div>
+        <div class="p-tagline">Higher hashrate M30 series at competitive pricing. Popular with buyers upgrading from older models.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">100 TH/s</span><span class="p-spec-pill">SHA-256</span><span class="p-spec-pill">Air cooled</span></div>
+        <div class="p-footer"><div class="p-price">₹85,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ALTCOIN MINERS -->
+<div class="cat-section visible" id="cat-altcoin">
+  <div class="cat-heading"><h2>Altcoin miners</h2><span>Non-SHA256 algorithms</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('z15pro')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="12" width="40" height="28" rx="3"/><rect x="10" y="18" width="28" height="16" rx="2"/><line x1="16" y1="8" x2="16" y2="12"/><line x1="32" y1="8" x2="32" y2="12"/></svg><span>Z15 Pro</span></div>
+        <div class="p-badges"><span class="badge b-green">Pre-Order</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antminer Z15 Pro</div>
+        <div class="p-tagline">Bitmain's most powerful Equihash miner. Double the hashrate of the original Z15. Designed for ZCash and Horizen mining.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">840 KSol/s</span><span class="p-spec-pill">2780W</span><span class="p-spec-pill">Equihash</span><span class="p-spec-pill">ZEC / ZEN</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SOLO MINERS -->
+<div class="cat-section visible" id="cat-solo">
+  <div class="cat-heading"><h2>Solo miners</h2><span>Bitaxe · Home mining · Open source · Low power</span></div>
+  <div class="p-grid">
+
+    <div class="p-card" onclick="openModal('bitaxegamma')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="12" y="12" width="24" height="24" rx="3"/><rect x="18" y="18" width="12" height="12" rx="1"/><line x1="12" y1="20" x2="6" y2="20"/><line x1="12" y1="28" x2="6" y2="28"/><line x1="36" y1="20" x2="42" y2="20"/><line x1="36" y1="28" x2="42" y2="28"/></svg><span>Bitaxe Gamma</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Home friendly</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitaxe</div>
+        <div class="p-name">Bitaxe Gamma 601</div>
+        <div class="p-tagline">Open-source solo Bitcoin miner for home use. Minimal power draw, silent, runs on a standard outlet.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">1.2 TH/s</span><span class="p-spec-pill">~15W</span><span class="p-spec-pill">Open source</span></div>
+        <div class="p-footer"><div class="p-price">₹37,999</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('bitaxehex')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="8" y="12" width="32" height="24" rx="3"/><rect x="14" y="18" width="20" height="12" rx="1"/><line x1="8" y1="20" x2="2" y2="20"/><line x1="8" y1="28" x2="2" y2="28"/><line x1="40" y1="20" x2="46" y2="20"/><line x1="40" y1="28" x2="46" y2="28"/></svg><span>Bitaxe Supra Hex</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Home friendly</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitaxe</div>
+        <div class="p-name">Bitaxe Supra Hex 701</div>
+        <div class="p-tagline">Six-chip open-source solo miner. Higher hashrate for serious home miners who want a step up without industrial hardware.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">4.2 TH/s</span><span class="p-spec-pill">~40W</span><span class="p-spec-pill">Open source</span></div>
+        <div class="p-footer"><div class="p-price">₹54,999</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SPARE PARTS & ACCESSORIES -->
+<div class="cat-section visible" id="cat-spareaccs">
+  <div class="cat-heading"><h2>Spare parts &amp; accessories</h2><span>Antminer compatible · Hydro infrastructure</span></div>
+  <div class="acc-grid">
+
+    <div class="p-card" onclick="openModal('antrackv1')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="10" y="4" width="28" height="40" rx="3"/><rect x="14" y="8" width="20" height="8" rx="1"/><rect x="14" y="20" width="20" height="8" rx="1"/><rect x="14" y="32" width="20" height="8" rx="1"/></svg><span>Antrack V1</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-blue">Hydro rack</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antrack V1</div>
+        <div class="p-tagline">24kW plug-and-play hydro-cooling cabinet for up to 4 Antminer hydro units. Complete cooling ecosystem in a single rack.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">24kW</span><span class="p-spec-pill">4x hydro miners</span><span class="p-spec-pill">300kg</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('antrackv2')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="6" y="4" width="22" height="40" rx="3"/><rect x="10" y="8" width="14" height="8" rx="1"/><rect x="10" y="20" width="14" height="8" rx="1"/><rect x="32" y="10" width="10" height="28" rx="8"/><line x1="28" y1="24" x2="32" y2="24"/></svg><span>Antrack V2</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span><span class="badge b-purple">Heat recovery</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Bitmain</div>
+        <div class="p-name">Antrack V2</div>
+        <div class="p-tagline">Split-design hydro cabinet with integrated heat pump. Recovers waste heat at up to 80°C for heating, aquaculture, or industrial use.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">24kW</span><span class="p-spec-pill">Heat pump</span><span class="p-spec-pill">80°C recovery</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('lianli')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="16" width="40" height="20" rx="3"/><line x1="12" y1="16" x2="12" y2="36"/><line x1="20" y1="16" x2="20" y2="36"/><line x1="28" y1="16" x2="28" y2="36"/><line x1="36" y1="16" x2="36" y2="36"/><path d="M10 8 Q24 4 38 8"/></svg><span>12KW Radiator</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Lian Li</div>
+        <div class="p-name">12KW Hydro Radiator</div>
+        <div class="p-tagline">Professional-grade 12kW radiator for external hydro-cooling loops. Compatible with Antminer S19 and S21 Hyd series.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">12kW capacity</span><span class="p-spec-pill">S19/S21 Hyd</span></div>
+        <div class="p-footer"><div class="p-price">₹75,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('psucable')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><path d="M10 24 Q10 12 24 12 Q38 12 38 24"/><rect x="18" y="24" width="12" height="16" rx="2"/><line x1="22" y1="40" x2="22" y2="44"/><line x1="26" y1="40" x2="26" y2="44"/></svg><span>PSU Cable</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Spare part</div>
+        <div class="p-name">PSU Cable 16A</div>
+        <div class="p-tagline">Power supply cable compatible with Antminer S19K Pro. Direct replacement for damaged or missing PSU cables.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">16A</span><span class="p-spec-pill">S19K Pro</span></div>
+        <div class="p-footer"><div class="p-price">₹500 / pc</div><div class="view-btn">Order <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('fansimulator')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="4"/><path d="M24 10 Q28 17 24 20 Q20 17 24 10"/><path d="M38 24 Q31 28 28 24 Q31 20 38 24"/><path d="M24 38 Q20 31 24 28 Q28 31 24 38"/><path d="M10 24 Q17 20 20 24 Q17 28 10 24"/></svg><span>Fan Simulator</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Spare part</div>
+        <div class="p-name">Fan Simulator</div>
+        <div class="p-tagline">Fan simulator for Antminer S19K Pro. Allows operation during maintenance, diagnostics, or when running in custom enclosures.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">S19K Pro</span></div>
+        <div class="p-footer"><div class="p-price">₹2,000 / pc</div><div class="view-btn">Order <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('silencerkit')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="8" y="14" width="32" height="20" rx="4"/><path d="M8 24 L2 20 L2 28 L8 24"/><path d="M40 24 L46 20 L46 28 L40 24"/><line x1="16" y1="14" x2="16" y2="34"/><line x1="24" y1="14" x2="24" y2="34"/><line x1="32" y1="14" x2="32" y2="34"/></svg><span>Silencer Kit</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Accessory</div>
+        <div class="p-name">Silencer Kit</div>
+        <div class="p-tagline">Noise reduction enclosure kit for Antminer S19 and S21 series. Significantly reduces operational noise for office or home environments.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">S19 / S21 series</span></div>
+        <div class="p-footer"><div class="p-price">₹12,000</div><div class="view-btn">Order <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="p-card" onclick="openModal('hashboard')">
+      <div class="p-img-wrap">
+        <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><rect x="4" y="14" width="40" height="20" rx="2"/><rect x="8" y="18" width="6" height="6" rx="1"/><rect x="18" y="18" width="6" height="6" rx="1"/><rect x="28" y="18" width="6" height="6" rx="1"/><rect x="38" y="18" width="2" height="6" rx="1"/><line x1="8" y1="28" x2="8" y2="34"/><line x1="14" y1="28" x2="14" y2="34"/><line x1="24" y1="28" x2="24" y2="34"/><line x1="34" y1="28" x2="34" y2="34"/></svg><span>Hashboard</span></div>
+        <div class="p-badges"><span class="badge b-green">Available</span></div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">Spare part</div>
+        <div class="p-name">Hashboard</div>
+        <div class="p-tagline">Replacement hashboards for Antminer series. Model-specific - confirm your miner model before ordering. Pricing on enquiry.</div>
+        <div class="p-specs-row"><span class="p-spec-pill">Model specific</span><span class="p-spec-pill">Confirm before ordering</span></div>
+        <div class="p-footer"><div class="p-price contact-price">Contact for price</div><div class="view-btn">Enquire <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end shop-wrap -->
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+    <div class="modal-grid">
+      <div class="modal-img-side" id="modalImgSide"></div>
+      <div class="modal-info-side" id="modalInfoSide"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="LBM.jpeg" alt="LBM">
+      <span class="footer-logo-text">LittleBitMining</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#consult">Consult</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <span class="footer-copy">&copy; 2025 Little BitMining. All rights reserved.</span>
+    <div class="footer-gst">All prices are exclusive of GST and shipping charges. Prices are subject to market fluctuations and confirmed at the time of order.</div>
+  </div>
+</footer>
+
+<script>
+// NAV
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+document.addEventListener('click',e=>{const m=document.getElementById('mobileMenu');if(m.classList.contains('open')&&!e.target.closest('nav'))m.classList.remove('open')});
+
+// FILTER
+function filter(key,btn){
+  document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const all=['s23','s21','s19','whatsminer','altcoin','solo','spareaccs'];
+  if(key==='all'){all.forEach(s=>document.getElementById('cat-'+s).classList.add('visible'))}
+  else{all.forEach(s=>document.getElementById('cat-'+s).classList.remove('visible'));document.getElementById('cat-'+key).classList.add('visible')}
+}
+
+// WA HELPER
+const WA='919818939992';
+function wa(msg){return'https://wa.me/'+WA+'?text='+encodeURIComponent(msg)}
+function waIcon(){return`<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>`}
+
+// PRODUCT DATA
+const products={
+  s23air:{brand:'Bitmain',name:'Antminer S23',badges:[['b-green','Pre-Order'],['b-blue','New gen']],
+    tagline:'The most efficient air-cooled Bitcoin miner ever built. 3nm chip architecture delivers 69% more hashrate than the S21 with 41% better energy efficiency.',
+    description:'The Antminer S23 represents Bitmain\'s latest generation, built on 3-nanometer ASIC architecture. It achieves 318 TH/s within just 3,498 watts, setting a new benchmark for air-cooled efficiency at 11 J/TH. For operators in markets with moderate electricity costs, the S23 offers one of the strongest ROI profiles currently available. Its compact air-cooled design means no additional cooling infrastructure required.',
+    specs:[['Hashrate','318 TH/s (±3%)'],['Power consumption','3,498W (±5%)'],['Efficiency','11 J/TH'],['Cooling','Air cooled (4 fans)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Noise level','~75 dB'],['Dimensions','449 × 219 × 293 mm'],['Weight','~15.8 kg'],['Operating temp','5 – 40°C'],['Warranty','365 days from shipping']],
+    uses:['Commercial mining farms','Medium-scale operations','Air-cooled deployments','Operators upgrading from S19 series'],
+    why:'The <strong>first air-cooled miner to cross 300 TH/s</strong> while maintaining efficiency below 12 J/TH. The current generation benchmark for air-cooled operations.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S23 (318 TH/s). Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  s23hyd:{brand:'Bitmain',name:'Antminer S23 Hyd',badges:[['b-green','Pre-Order'],['b-blue','Hydro']],
+    tagline:'First Bitcoin miner to exceed 500 TH/s with sub-10 J/TH efficiency.',
+    description:'The S23 Hyd breaks two records simultaneously: first Bitcoin miner over 500 TH/s, and first to achieve efficiency below 10 J/TH. At 9.5 J/TH it represents a 41% efficiency gain over the S21 generation. Hydro cooling enables silent, dense rack deployment in professional environments. Requires an external cooling loop.',
+    specs:[['Hashrate','580 TH/s (±3%)'],['Power consumption','5,510W (±5%)'],['Efficiency','9.5 J/TH'],['Cooling','Hydro (external loop required)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Noise level','<50 dB (with cooling setup)'],['Operating temp','5 – 45°C inlet water'],['Warranty','365 days from shipping']],
+    uses:['Professional mining facilities','Hydro-cooled deployments','Large-scale commercial operators','Noise-sensitive environments'],
+    why:'At <strong>9.5 J/TH</strong>, the most energy-efficient Bitcoin miner currently available. For operators in high-density or noise-restricted environments, this is the benchmark.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S23 Hyd (580 TH/s). Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  s23hyd3u:{brand:'Bitmain',name:'Antminer S23 Hyd 3U',badges:[['b-green','Pre-Order'],['b-purple','1.16 PH/s']],
+    tagline:'World\'s first single unit to break 1 petahash. Industrial-scale compute density.',
+    description:'The S23 Hyd 3U is unprecedented - a single rack unit delivering 1,160 TH/s (1.16 PH/s) at 9.5 J/TH efficiency. Designed for institutional operators and large mining farms where space, power density, and management overhead need to be minimised. Requires industrial hydro-cooling infrastructure and three-phase power.',
+    specs:[['Hashrate','1,160 TH/s / 1.16 PH/s (±3%)'],['Power consumption','11,020W (±5%)'],['Efficiency','9.5 J/TH'],['Cooling','Hydro (industrial loop)'],['Form factor','3U rack'],['Algorithm','SHA-256'],['Power input','Three-phase AC'],['Warranty','365 days from shipping']],
+    uses:['Institutional mining operations','Large-scale data centres','Fleet operators (50+ units)','Enterprise deployments'],
+    why:'The <strong>highest hashrate single unit ever produced</strong>. For enterprise buyers where operational simplicity and density matter most.',
+    priceHtml:'<div class="price-contact">Contact for institutional pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S23 Hyd 3U (1.16 PH/s). This is for a larger deployment. Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  s23imm:{brand:'Bitmain',name:'Antminer S23 Imm',badges:[['b-green','Pre-Order'],['b-blue','Immersion']],
+    tagline:'Immersion-cooled S23 variant for operators with dielectric fluid infrastructure.',
+    description:'The S23 Imm is configured for immersion cooling using dielectric fluid, allowing tighter rack density and elimination of fan noise entirely. At 442 TH/s it offers a strong balance of hashrate and infrastructure flexibility for operators already running immersion tanks.',
+    specs:[['Hashrate','~442 TH/s (±3%)'],['Power consumption','~4,400W (±5%)'],['Cooling','Immersion (dielectric fluid)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Noise level','Near silent'],['Warranty','365 days from shipping']],
+    uses:['Immersion cooling farms','High-density setups','Silent mining environments','Operators with existing immersion infrastructure'],
+    why:'If you already have immersion infrastructure, the <strong>S23 Imm gives you next-generation hashrate without rebuilding your cooling setup</strong>.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S23 Imm (442 TH/s). Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  s21xp:{brand:'Bitmain',name:'Antminer S21 XP',badges:[['b-green','Available']],
+    tagline:'Most efficient air-cooled miner in the S21 lineup.',
+    description:'The S21 XP delivers 270 TH/s at 13.5 J/TH - the highest efficiency in the air-cooled S21 range. The right choice for operators who prioritise energy efficiency over raw hashrate, particularly relevant in India where electricity costs vary significantly. Standard air cooling and single-phase power make setup straightforward.',
+    specs:[['Hashrate','270 TH/s (±3%)'],['Power consumption','3,645W (±5%)'],['Efficiency','13.5 J/TH'],['Cooling','Air cooled (4 fans)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Noise level','76 dB'],['Dimensions','449 × 219 × 293 mm'],['Weight','18.7 kg'],['Input voltage','220 – 277V'],['Operating temp','-20 – 45°C'],['Warranty','365 days from shipping']],
+    uses:['First-time professional buyers','Efficiency-focused operations','Individual investors scaling up','Small to mid-size setups'],
+    why:'The <strong>S21 XP offers the best efficiency in the air-cooled S21 range</strong>. For buyers calculating ROI against local electricity rates, the lower J/TH directly improves monthly returns.',
+    priceHtml:'<div class="price-main">₹4,30,000</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S21 XP (270 TH/s) at ₹4,30,000. Please confirm availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  s21proplus:{brand:'Bitmain',name:'Antminer S21 Pro+',badges:[['b-green','Available']],
+    tagline:'High-performance air-cooled S21 with two hashrate options.',
+    description:'The S21 Pro+ is available in 234T and 245T configurations, delivering strong hashrate in a standard air-cooled chassis. A balanced option between the standard S21 and XP for buyers building out their first serious operation.',
+    specs:[['Hashrate options','234 TH/s / 245 TH/s (±3%)'],['Cooling','Air cooled'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Warranty','365 days from shipping']],
+    uses:['First-time buyers stepping up from entry-level','Operators building 5-20 unit setups','Upgrading from S19 generation'],
+    why:'Two hashrate options let you <strong>match your power capacity and budget</strong> precisely without compromising on generation.',
+    variants:[
+      {label:'245T',price:'₹3,00,000',msg:'Hi, I\'m interested in the Antminer S21 Pro+ (245T) at ₹3,00,000. Please confirm availability.'},
+      {label:'234T',price:'₹2,55,000',msg:'Hi, I\'m interested in the Antminer S21 Pro+ (234T) at ₹2,55,000. Please confirm availability.'}
+    ]},
+
+  s21sold:{brand:'Bitmain',name:'Antminer S21',badges:[['b-red','Sold out']],
+    tagline:'Currently unavailable. Register interest to be notified.',
+    description:'The standard Antminer S21 (200 TH/s) is currently out of stock. Register your interest via WhatsApp and we will contact you when units become available.',
+    specs:[['Hashrate','200 TH/s'],['Power consumption','3,500W'],['Cooling','Air cooled'],['Status','Currently unavailable']],
+    uses:[],why:'',
+    priceHtml:'<div class="price-contact">Currently unavailable</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S21 (200 TH/s). Please notify me when it\'s back in stock.')}" class="btn-enquire" target="_blank" rel="noopener">${waIcon()} Notify me when available</a>`},
+
+  s21xphyd:{brand:'Bitmain',name:'Antminer S21 XP Hyd',badges:[['b-green','Available'],['b-blue','Hydro']],
+    tagline:'Hydro-cooled flagship of the S21 XP generation. 473 TH/s with silent operation.',
+    description:'The S21 XP Hyd combines XP generation efficiency with hydro cooling for the highest hashrate in the S21 air-versus-liquid range. At 473 TH/s it offers nearly 75% more hashrate than the air-cooled XP, making it highly attractive for operators already running liquid cooling loops.',
+    specs:[['Hashrate','473 TH/s (±3%)'],['Power consumption','5,676W (±5%)'],['Efficiency','~12 J/TH'],['Cooling','Hydro (external loop)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Input','Three-phase AC, 12A max'],['Water flow','8.0 – 10.0 L/min'],['Water pressure','≤ 3.5 bar'],['Dimensions','410 × 170 × 209 mm'],['Warranty','365 days from shipping']],
+    uses:['Hydro-cooled professional facilities','Operators with Antrack or third-party cooling','High-density deployments'],
+    why:'<strong>473 TH/s in a single unit</strong> with the quietness of hydro cooling. For operators who have invested in infrastructure and want maximum hashrate per cooling loop.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer S21 XP Hyd (473 TH/s). Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  s21plushyd:{brand:'Bitmain',name:'Antminer S21+ Hyd',badges:[['b-green','Available'],['b-blue','Hydro']],
+    tagline:'Four hashrate configurations for flexible deployment.',
+    description:'The S21+ Hyd comes in four variants giving operators flexibility to match power capacity and budget precisely. All variants run on the proven S21 hydro platform.',
+    specs:[['Hashrate options','319T / 338T / 358T / 395T'],['Cooling','Hydro (external loop)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Warranty','365 days from shipping']],
+    uses:['Operators entering hydro mining','Mid-scale hydro deployments','Buyers wanting current-gen without S23 pricing'],
+    why:'Four variants mean you can <strong>choose exactly what fits your power budget</strong>. The 338T and 358T are the most popular configurations.',
+    variants:[
+      {label:'395T',price:'₹3,50,000',msg:'Hi, I\'m interested in the Antminer S21+ Hyd (395T) at ₹3,50,000. Please confirm availability.'},
+      {label:'358T',price:'₹3,25,000',msg:'Hi, I\'m interested in the Antminer S21+ Hyd (358T) at ₹3,25,000. Please confirm availability.'},
+      {label:'338T',price:'₹3,00,000',msg:'Hi, I\'m interested in the Antminer S21+ Hyd (338T) at ₹3,00,000. Please confirm availability.'},
+      {label:'319T',price:'₹2,75,000',msg:'Hi, I\'m interested in the Antminer S21+ Hyd (319T) at ₹2,75,000. Please confirm availability.'}
+    ]},
+
+  s19kpro:{brand:'Bitmain',name:'Antminer S19K Pro',badges:[['b-green','Available']],
+    tagline:'Most accessible entry into professional Bitcoin mining.',
+    description:'The S19K Pro is the recommended starting point for first-time professional buyers in India. Reliable, proven performance with widespread community support and readily available spare parts. Available in four variants.',
+    specs:[['Hashrate options','105T / 110T / 115T / 120T'],['Cooling','Air cooled'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Noise level','~72 dB'],['Warranty','365 days from shipping']],
+    uses:['First-time professional buyers','Individual investors','Small setups with proper ventilation','Buyers evaluating before scaling'],
+    why:'One of the <strong>best-value professional miners available right now</strong>. Proven, reliable, well-supported. Accessible price point for individual buyers.',
+    variants:[
+      {label:'120T',price:'₹70,000',msg:'Hi, I\'m interested in the Antminer S19K Pro (120T) at ₹70,000. Please confirm availability.'},
+      {label:'115T',price:'₹65,000',msg:'Hi, I\'m interested in the Antminer S19K Pro (115T) at ₹65,000. Please confirm availability.'},
+      {label:'110T',price:'₹60,000',msg:'Hi, I\'m interested in the Antminer S19K Pro (110T) at ₹60,000. Please confirm availability.'},
+      {label:'105T',price:'₹55,000',msg:'Hi, I\'m interested in the Antminer S19K Pro (105T) at ₹55,000. Please confirm availability.'}
+    ]},
+
+  s19xpphyd:{brand:'Bitmain',name:'Antminer S19 XP+ Hyd',badges:[['b-green','Available'],['b-blue','Hydro']],
+    tagline:'Hydro-cooled S19 generation at competitive pricing.',
+    description:'The S19 XP+ Hyd offers hydro-cooled performance at S19 generation pricing - a compelling option for operators who have cooling infrastructure and want strong hashrate without S21 prices. Two variants available.',
+    specs:[['Hashrate options','279T / 293T'],['Cooling','Hydro (external loop required)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Warranty','365 days from shipping']],
+    uses:['Operators with existing hydro infrastructure','Cost-conscious hydro buyers','Upgrade path from older air-cooled units'],
+    why:'For operators already running a hydro setup, the S19 XP+ Hyd delivers <strong>strong hashrate at significantly lower cost than S21 Hyd variants</strong>.',
+    variants:[
+      {label:'293T',price:'₹1,30,000',msg:'Hi, I\'m interested in the Antminer S19 XP+ Hyd (293T) at ₹1,30,000. Please confirm availability.'},
+      {label:'279T',price:'₹1,20,000',msg:'Hi, I\'m interested in the Antminer S19 XP+ Hyd (279T) at ₹1,20,000. Please confirm availability.'}
+    ]},
+
+  z15pro:{brand:'Bitmain',name:'Antminer Z15 Pro',badges:[['b-green','Pre-Order']],
+    tagline:'Bitmain\'s most powerful Equihash miner. Double the hashrate of the original Z15.',
+    description:'The Antminer Z15 Pro is the current pinnacle of Equihash mining - delivering 840 KSol/s at 2,780W, with an efficiency of 3.31 J/KSol. It mines ZCash (ZEC) and Horizen (ZEN), and delivers approximately double the performance of the original Z15 while improving energy efficiency. Released June 2023, it remains the most capable Equihash ASIC available. Suitable for serious ZCash operations and miners looking for non-SHA256 diversification.',
+    specs:[['Algorithm','Equihash'],['Hashrate','840 KSol/s (±3%)'],['Power consumption','2,780W (±5%)'],['Efficiency','3.31 J/KSol'],['Coins','ZEC (ZCash), ZEN (Horizen)'],['Cooling','Air cooled (2 fans)'],['Noise level','72 dB'],['Dimensions','428 × 195 × 290 mm'],['Weight','16.9 kg'],['Input voltage','220 – 277V, dual AC input'],['Operating temp','0 – 40°C'],['Humidity','5 – 95%'],['Network','Ethernet'],['Warranty','365 days from shipping']],
+    uses:['ZCash (ZEC) miners','Horizen (ZEN) mining','Equihash algorithm specialists','Portfolio diversification outside Bitcoin SHA-256'],
+    why:'The <strong>most powerful Equihash miner Bitmain has ever released</strong>. For buyers specifically targeting ZEC or ZEN, there is nothing more capable available.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Antminer Z15 Pro (840 KSol/s). Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  m31s:{brand:'MicroBT',name:'Whatsminer M31S',badges:[['b-green','Available']],
+    tagline:'Reliable mid-range Bitcoin miner from MicroBT.',
+    description:'The Whatsminer M31S is MicroBT\'s proven SHA-256 miner offering a reliable alternative to the Antminer lineup. For buyers who prefer hardware diversity or have prior experience with MicroBT products.',
+    specs:[['Hashrate','82 TH/s (±3%)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Cooling','Air cooled'],['Warranty','Contact for details']],
+    uses:['Buyers seeking non-Bitmain hardware','Portfolio diversification across manufacturers','Operators already running MicroBT units'],
+    why:'A <strong>trusted alternative for buyers who want manufacturer diversity</strong> in their fleet without compromising on reliability.',
+    priceHtml:'<div class="price-main">₹1,50,000</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Whatsminer M31S at ₹1,50,000. Please share current availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  m30splus:{brand:'MicroBT',name:'Whatsminer M30S+',badges:[['b-green','Available']],
+    tagline:'Higher hashrate M30 series at competitive pricing.',
+    description:'The M30S+ delivers 100 TH/s with solid energy efficiency. One of the more popular entry-level options for buyers seeking reliable performance without latest-generation pricing.',
+    specs:[['Hashrate','100 TH/s (±3%)'],['Algorithm','SHA-256'],['Coins','BTC, BCH, BSV'],['Cooling','Air cooled'],['Warranty','Contact for details']],
+    uses:['Value-conscious buyers','Upgrade from older generation hardware','Entry point for new operators'],
+    why:'Strong hashrate at one of the <strong>most competitive price points in our catalogue</strong>.',
+    priceHtml:'<div class="price-main">₹85,000</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Whatsminer M30S+ at ₹85,000. Please share current availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  bitaxegamma:{brand:'Bitaxe',name:'Bitaxe Gamma 601',badges:[['b-green','Available'],['b-blue','Home friendly']],
+    tagline:'Open-source solo Bitcoin miner for home use.',
+    description:'The Bitaxe Gamma 601 is a single-chip open-source Bitcoin miner running on just 15 watts. Connects directly to the Bitcoin network as a solo miner. The most accessible and educational way to participate in Bitcoin mining from home. Runs silently on a standard USB-C power adapter.',
+    specs:[['Hashrate','1.2 TH/s'],['Power consumption','~15W'],['Connectivity','Wi-Fi + Ethernet'],['Power input','USB-C / 5V'],['Firmware','AxeOS (open source)'],['Algorithm','SHA-256'],['Mining mode','Solo or pool'],['Noise level','Near silent']],
+    uses:['Home mining enthusiasts','Bitcoin education','First-time buyers wanting to start small','Hobbyist collectors'],
+    why:'The <strong>most affordable way to genuinely participate in Bitcoin mining</strong> from home. Runs on a phone charger.',
+    priceHtml:'<div class="price-main">₹37,999</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Bitaxe Gamma 601 at ₹37,999. Please confirm availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  bitaxehex:{brand:'Bitaxe',name:'Bitaxe Supra Hex 701',badges:[['b-green','Available'],['b-blue','Home friendly']],
+    tagline:'Six-chip open-source solo miner. Higher hashrate for serious home miners.',
+    description:'The Supra Hex 701 runs six BM1370 chips delivering 4.2 TH/s - over 3x the hashrate of the Gamma, still within home-friendly power consumption. Runs open-source AxeOS firmware and connects to solo or pool mining.',
+    specs:[['Hashrate','4.2 TH/s'],['Power consumption','~40W'],['Chips','6x BM1370'],['Connectivity','Wi-Fi + Ethernet'],['Firmware','AxeOS (open source)'],['Algorithm','SHA-256'],['Mining mode','Solo or pool'],['Noise level','Low (small fan)']],
+    uses:['Dedicated home miners','Enthusiasts upgrading from Gamma','Educational setups requiring higher hashrate'],
+    why:'For home miners who want <strong>real hashrate without industrial noise, power, or infrastructure</strong>.',
+    priceHtml:'<div class="price-main">₹54,999</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Bitaxe Supra Hex 701 at ₹54,999. Please confirm availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  antrackv1:{brand:'Bitmain',name:'Antrack V1',badges:[['b-green','Available'],['b-blue','Hydro rack']],
+    tagline:'24kW plug-and-play hydro-cooling cabinet for up to 4 Antminer hydro units.',
+    description:'The Antrack V1 is Bitmain\'s dedicated housing system for hydro-cooled miners. A self-contained cabinet managing coolant flow, power distribution, and network connectivity for up to 4 S19 or S21 Hyd units simultaneously. Purpose-built for operators moving from air to liquid cooling without building custom infrastructure.',
+    specs:[['Max load','24kW'],['Miner capacity','4x Antminer Hyd units (S19/S21/S23)'],['Dimensions','600 × 1000 × 2000 mm'],['Weight','~300kg (bare)'],['Network','RJ45 Ethernet 10/100M'],['Power input','380-415V AC, 3-phase, 80A'],['Water flow','32 – 40 L/min'],['Water pressure','≤ 3.5 bar'],['Fluid conductivity','Replace if >100 μS/cm'],['Warranty','365 days']],
+    uses:['Operators deploying 4 hydro miners','Entry point to hydro infrastructure','Noise-sensitive commercial environments'],
+    why:'The <strong>simplest path to professional hydro cooling</strong> - a complete system rather than a custom build.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Bitmain Antrack V1 hydro cooling rack. Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  antrackv2:{brand:'Bitmain',name:'Antrack V2',badges:[['b-green','Available'],['b-purple','Heat recovery']],
+    tagline:'Split-design hydro cabinet with integrated heat pump and 80°C waste heat recovery.',
+    description:'The Antrack V2 advances on the V1 with a split design separating the cabinet from an external heat pump. Enables flexible physical placement and the ability to recover mining waste heat at up to 80°C for productive use - space heating, water heating, aquaculture, or industrial processes.',
+    specs:[['Max load','24kW'],['Miner capacity','4x Antminer Hyd or 2x RACK483 servers'],['Design','Split system (cabinet + external heat pump)'],['Heat exchange capacity','30kW'],['Heat recovery','Up to 80°C hot water output'],['EER','~3.0'],['Noise level','~60 dBA'],['Warranty','365 days']],
+    uses:['Operators seeking heat recovery','Industrial deployments with heating needs','Aquaculture or agriculture with heating requirements'],
+    why:'Turns <strong>mining waste heat into a usable resource</strong>. For operators where energy cost is a major factor, heat recovery meaningfully improves overall economics.',
+    priceHtml:'<div class="price-contact">Contact for current pricing</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Bitmain Antrack V2 with heat recovery. Please share availability and pricing.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`},
+
+  lianli:{brand:'Lian Li',name:'12KW Hydro Radiator',badges:[['b-green','Available']],
+    tagline:'Professional-grade 12kW radiator for external hydro-cooling loops.',
+    description:'The Lian Li 12KW radiator handles up to 12kW of heat dissipation, suitable for 2-3 S21 Hyd miners or equivalent. Essential infrastructure for operators building external cooling loops without the Antrack system.',
+    specs:[['Cooling capacity','12kW'],['Compatibility','Antminer S19 / S21 Hyd series'],['Application','External cooling loop']],
+    uses:['Operators building custom hydro loops','Alternative to Antrack for smaller setups'],
+    why:'A <strong>correctly-specced radiator at a competitive price</strong> for operators building their own hydro loop.',
+    priceHtml:'<div class="price-main">₹75,000</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'m interested in the Lian Li 12KW Radiator at ₹75,000. Please confirm availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`},
+
+  psucable:{brand:'Spare part',name:'PSU Cable 16A',badges:[['b-green','Available']],
+    tagline:'Power supply cable for Antminer S19K Pro.',
+    description:'Direct replacement PSU cable for the Antminer S19K Pro. 16A rated. Compatible with the standard S19K Pro power supply. Specs and additional compatibility details to be confirmed - contact us if unsure.',
+    specs:[['Rating','16A'],['Compatibility','Antminer S19K Pro'],['Type','PSU power cable']],
+    uses:['S19K Pro owners replacing damaged cables','Spare cable for operational setups'],
+    why:'',
+    priceHtml:'<div class="price-main">₹500 / pc</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'d like to order PSU Cable 16A for S19K Pro at ₹500 per pc. Please confirm availability and quantity.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Order via WhatsApp</a>`},
+
+  fansimulator:{brand:'Spare part',name:'Fan Simulator',badges:[['b-green','Available']],
+    tagline:'Fan simulator for Antminer S19K Pro.',
+    description:'Fan simulator for the Antminer S19K Pro, allowing the miner to operate during maintenance, testing, or when running in custom enclosures where original fans are removed. Full specs to be confirmed - contact us for compatibility details.',
+    specs:[['Compatibility','Antminer S19K Pro'],['Use case','Maintenance / custom enclosures / testing']],
+    uses:['S19K Pro owners doing maintenance','Custom enclosure builds','Testing and diagnostics'],
+    why:'',
+    priceHtml:'<div class="price-main">₹2,000 / pc</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'d like to order Fan Simulator for S19K Pro at ₹2,000 per pc. Please confirm availability.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Order via WhatsApp</a>`},
+
+  silencerkit:{brand:'Accessory',name:'Silencer Kit',badges:[['b-green','Available']],
+    tagline:'Noise reduction enclosure kit for Antminer S19 and S21 series.',
+    description:'Significantly reduces operational noise from Antminer S19 and S21 series miners, making them suitable for office environments, home setups, and noise-sensitive locations. Full specs and noise reduction figures to be confirmed.',
+    specs:[['Compatibility','Antminer S19 / S21 series'],['Application','Noise reduction enclosure']],
+    uses:['Home miners in noise-sensitive environments','Office or commercial space setups','Operators needing quieter operation'],
+    why:'Turns a loud industrial miner into a <strong>significantly quieter unit suitable for non-industrial environments</strong>.',
+    priceHtml:'<div class="price-main">₹12,000</div><div class="price-note">Excl. GST & shipping</div>',
+    actions:`<a href="${wa('Hi, I\'d like to order a Silencer Kit at ₹12,000. Please confirm availability and which Antminer series it covers.')}" class="btn-wa" target="_blank" rel="noopener">${waIcon()} Order via WhatsApp</a>`},
+
+  hashboard:{brand:'Spare part',name:'Hashboard',badges:[['b-green','Available']],
+    tagline:'Replacement hashboards for Antminer series. Model-specific.',
+    description:'Replacement hashboards for various Antminer models. Confirm your exact miner model before ordering - hashboards are model-specific and not interchangeable. Pricing varies by model. Contact us with your miner model and number of hashboards needed.',
+    specs:[['Type','ASIC hashboard replacement'],['Compatibility','Model-specific - confirm before ordering'],['Pricing','On enquiry by model']],
+    uses:['Miners replacing failed hashboards','Operators maintaining existing fleets','Repair and refurbishment'],
+    why:'Replacing a hashboard is significantly more cost-effective than buying a new unit. <strong>We can source boards for most Antminer models</strong>.',
+    priceHtml:'<div class="price-contact">Contact for pricing by model</div>',
+    actions:`<a href="${wa('Hi, I need a hashboard replacement. My miner model is: [please specify]. How many units I need: [please specify]. Please share availability and pricing.')}" class="btn-enquire" target="_blank" rel="noopener">${waIcon()} Enquire on WhatsApp</a>`}
+};
+
+// MODAL
+function openModal(id){
+  const p=products[id];
+  if(!p)return;
+
+  // Image side
+  document.getElementById('modalImgSide').innerHTML=`
+    <div class="modal-badges">${p.badges.map(b=>`<span class="badge ${b[0]}">${b[1]}</span>`).join('')}</div>
+    <div class="modal-img-placeholder">
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="0.8" width="80" height="80" opacity="0.18"><rect x="4" y="16" width="56" height="38" rx="4"/><rect x="12" y="24" width="40" height="22" rx="2"/><line x1="20" y1="10" x2="20" y2="16"/><line x1="44" y1="10" x2="44" y2="16"/></svg>
+      <p style="font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.06em;text-transform:uppercase;margin-top:10px">${p.name}</p>
+      <p style="font-size:11px;color:var(--t3);margin-top:4px;text-align:center;max-width:140px;line-height:1.5">Product images coming soon</p>
+    </div>`;
+
+  // Build variant HTML - default to first (highest)
+  let variantHtml='', priceHtml=p.priceHtml||'', actionsHtml=p.actions||'';
+  if(p.variants&&p.variants.length){
+    variantHtml=`<div class="variant-section"><div class="variant-label">Select hashrate</div><div class="variant-pills" id="vPills">${p.variants.map((v,i)=>`<div class="v-pill ${i===0?'selected':''}" onclick="selV(${i},'${id}')">${v.label}</div>`).join('')}</div></div>`;
+    priceHtml=`<div class="price-main" id="mPrice">${p.variants[0].price}</div><div class="price-note">Excl. GST & shipping</div>`;
+    actionsHtml=`<a href="${wa(p.variants[0].msg)}" class="btn-wa" id="mWaBtn" target="_blank" rel="noopener">${waIcon()} Buy via WhatsApp</a>`;
+  }
+
+  const specsHtml=p.specs&&p.specs.length?`<div class="specs-heading">Specifications</div><table class="specs-table">${p.specs.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('')}</table>`:'';
+  const usesHtml=p.uses&&p.uses.length?`<div class="specs-heading" style="margin-bottom:10px">Suited for</div><div class="use-cases" style="margin-bottom:24px">${p.uses.map(u=>`<span class="use-case-tag">${u}</span>`).join('')}</div>`:'';
+  const whyHtml=p.why?`<div class="why-buy"><p>${p.why}</p></div>`:'';
+
+  document.getElementById('modalInfoSide').innerHTML=`
+    <div class="modal-brand">${p.brand}</div>
+    <div class="modal-name">${p.name}</div>
+    <div class="modal-tagline">${p.tagline}</div>
+    ${variantHtml}
+    <div class="price-block">${priceHtml}</div>
+    <div class="modal-actions">${actionsHtml}</div>
+    ${whyHtml}
+    ${specsHtml}
+    ${usesHtml}
+    <p style="font-size:12px;color:var(--t3);line-height:1.6;margin-top:8px">Not sure which model fits your setup? <a href="${wa('Hi, I need help choosing the right mining hardware. Can we have a quick consultation call?')}" style="color:var(--accent-2);text-decoration:underline" target="_blank" rel="noopener">Book a consultation</a> with our team.</p>`;
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function selV(i,id){
+  const v=products[id].variants[i];
+  document.querySelectorAll('#vPills .v-pill').forEach((p,j)=>p.classList.toggle('selected',j===i));
+  const pe=document.getElementById('mPrice');if(pe)pe.textContent=v.price;
+  const be=document.getElementById('mWaBtn');if(be)be.href=wa(v.msg);
+}
+
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}
+function handleOverlayClick(e){if(e.target===document.getElementById('modalOverlay'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>

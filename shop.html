@@ -896,29 +896,29 @@ const products={
 
 // IMAGE MAPPING
 const imageMap={
-  's23air':{'folder':'s21xp','count':4},
-  's23hyd':{'folder':'hydro','count':4},
-  's23hyd3u':{'folder':'u3s23','count':3},
-  's23imm':{'folder':'imm','count':4},
-  's21xp':{'folder':'s21xp','count':4},
-  's21proplus':{'folder':'s21pro','count':4},
+  's23air':{'folder':'s21xp'},
+  's23hyd':{'folder':'hydro'},
+  's23hyd3u':{'folder':'u3s23'},
+  's23imm':{'folder':'imm'},
+  's21xp':{'folder':'s21xp'},
+  's21proplus':{'folder':'s21pro'},
   's21sold':null,
-  's21xphyd':{'folder':'hydro','count':4},
-  's21plushyd':{'folder':'hydro','count':4},
-  's19kpro':{'folder':'kpro','count':4},
-  's19xpphyd':{'folder':'hydro','count':4},
-  'm31s':{'folder':'whatsminer_m31s','count':3},
-  'm30splus':{'folder':'whatsminer_m30s_plus','count':3},
-  'z15pro':{'folder':'z15','count':4},
-  'bitaxegamma':{'folder':'bitaxe_gamma','count':3},
-  'bitaxehex':{'folder':'bitaxe_supra_hex','count':3},
-  'antrackv1':{'folder':'antrack_v1','count':4},
-  'antrackv2':{'folder':'antrack_v2','count':5},
-  'lianli':{'folder':'radiator','count':2},
-  'psucable':{'folder':'cable','count':2},
-  'fansimulator':{'folder':'fan_simulator','count':2},
-  'silencerkit':{'folder':'silencer_kit','count':2},
-  'hashboard':{'folder':'hashboard','count':4}
+  's21xphyd':{'folder':'hydro'},
+  's21plushyd':{'folder':'hydro'},
+  's19kpro':{'folder':'kpro'},
+  's19xpphyd':{'folder':'hydro'},
+  'm31s':{'folder':'whatsminer_m31s'},
+  'm30splus':{'folder':'whatsminer_m30s_plus'},
+  'z15pro':{'folder':'z15'},
+  'bitaxegamma':{'folder':'bitaxe_gamma'},
+  'bitaxehex':{'folder':'bitaxe_supra_hex'},
+  'antrackv1':{'folder':'antrack_v1'},
+  'antrackv2':{'folder':'antrack_v2'},
+  'lianli':{'folder':'radiator'},
+  'psucable':{'folder':'cable'},
+  'fansimulator':{'folder':'fan_simulator'},
+  'silencerkit':{'folder':'silencer_kit'},
+  'hashboard':{'folder':'hashboard'}
 };
 
 // LOAD CARD IMAGES ON PAGE LOAD
@@ -957,6 +957,48 @@ document.addEventListener('DOMContentLoaded',loadCardImages);
 
 // GALLERY STATE AND NAVIGATION
 let galleryState={currentImage:1,totalImages:4};
+
+// Handle image loading errors - try png if jpg fails, then hide if both fail
+function handleImageError(imgEl, folder, index){
+  if(imgEl.src.endsWith('.jpg')){
+    imgEl.src=`Images/${folder}_${index}.png`;
+    imgEl.onerror=function(){
+      // Both jpg and png failed, hide this image
+      imgEl.style.display='none';
+      updateDotsAfterImageLoad();
+    };
+  }else{
+    // png also failed, hide this image
+    imgEl.style.display='none';
+    updateDotsAfterImageLoad();
+  }
+}
+
+// Update dots based on actual visible images
+function updateDotsAfterImageLoad(){
+  const gallery=document.getElementById('imgGallery');
+  const dotsContainer=document.getElementById('dotsContainer');
+  if(!gallery || !dotsContainer)return;
+  
+  const visibleImages=Array.from(gallery.querySelectorAll('img')).filter(img=>img.style.display!=='none');
+  const totalVisible=visibleImages.length;
+  
+  if(totalVisible===0)return;
+  
+  // Clear existing dots
+  dotsContainer.innerHTML='';
+  
+  // Create dots for each visible image
+  for(let i=0;i<totalVisible;i++){
+    const dot=document.createElement('button');
+    dot.onclick=()=>showImg(i+1);
+    dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${i===0?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;`;
+    dotsContainer.appendChild(dot);
+  }
+  
+  // Update gallery state
+  galleryState={currentImage:1,totalImages:totalVisible};
+}
 
 function updateGallery(){
   const {currentImage,totalImages}=galleryState;
@@ -1009,14 +1051,16 @@ function openModal(id){
     // Left arrow - DARK BACKGROUND
     imgHtml+=`<button onclick="prevImage()" style="position:absolute;left:10px;background:rgba(0,0,0,0.5);border:1px solid rgba(0,0,0,0.7);color:#ffffff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:5;font-weight:bold;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">❮</button>`;
     
-    // Image gallery - load only as many images as count specifies
+    // Image gallery - dynamically load images and detect how many exist
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
-    for(let i=1;i<=img.count;i++){
-      // Try jpg first, fallback to png - no IDs to avoid conflicts between modals
+    // Start with a reasonable max (e.g., 10) and let onerror remove non-existent ones
+    let maxPossibleImages = 10;
+    for(let i=1;i<=maxPossibleImages;i++){
       imgHtml+=`<img src="Images/${img.folder}_${i}.jpg" 
                      alt="Product image ${i}" 
                      style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" 
-                     onerror="if(this.src.endsWith('.jpg'))this.src='Images/${img.folder}_${i}.png'">`;
+                     data-image-index="${i}"
+                     onerror="handleImageError(this, '${img.folder}', ${i})">`;
     }
     imgHtml+=`</div>`;
     
@@ -1025,15 +1069,8 @@ function openModal(id){
     
     imgHtml+=`</div>`;
     
-    // Dots navigation - only create as many dots as images exist (no IDs to avoid conflicts)
-    imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
-    for(let i=1;i<=img.count;i++){
-      imgHtml+=`<button onclick="showImg(${i})" style="width:10px;height:10px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;"></button>`;
-    }
-    imgHtml+=`</div>`;
-    
-    // Initialize gallery state with actual count
-    galleryState={currentImage:1,totalImages:img.count};
+    // Dots navigation will be generated dynamically after images load
+    imgHtml+=`<div id="dotsContainer" style="margin-top:10px;display:flex;justify-content:center;gap:8px;"></div>`;
   }else{
     imgHtml+=`<div class="modal-img-placeholder">
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="0.8" width="80" height="80" opacity="0.18"><rect x="4" y="16" width="56" height="38" rx="4"/><rect x="12" y="24" width="40" height="22" rx="2"/><line x1="20" y1="10" x2="20" y2="16"/><line x1="44" y1="10" x2="44" y2="16"/></svg>

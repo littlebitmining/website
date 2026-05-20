@@ -318,7 +318,7 @@ footer{border-top:1px solid var(--border);background:var(--bg);padding:36px 48px
         <div class="p-name">Antminer S21 XP</div>
         <div class="p-tagline">Most efficient air-cooled miner in the S21 lineup. Best-in-class efficiency for operators in high electricity cost markets.</div>
         <div class="p-specs-row"><span class="p-spec-pill">270 TH/s</span><span class="p-spec-pill">3645W</span><span class="p-spec-pill">13.5 J/TH</span><span class="p-spec-pill">Air cooled</span></div>
-        <div class="p-footer"><div class="p-price">₹4,30,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
+        <div class="p-footer"><div class="p-price">₹4,30,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
       </div>
     </div>
 
@@ -566,6 +566,8 @@ footer{border-top:1px solid var(--border);background:var(--bg);padding:36px 48px
         <div class="p-footer"><div class="p-price">₹75,000</div><div class="view-btn">View details <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="11" height="11"><path d="M2 6h8M6 2l4 4-4 4"/></svg></div></div>
       </div>
     </div>
+
+    <div class="p-card" onclick="openModal('psucable')">
       <div class="p-img-wrap">
         <div class="p-img-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1" width="48" height="48"><path d="M10 24 Q10 12 24 12 Q38 12 38 24"/><rect x="18" y="24" width="12" height="16" rx="2"/><line x1="22" y1="40" x2="22" y2="44"/><line x1="26" y1="40" x2="26" y2="44"/></svg><span>PSU Cable</span></div>
         <div class="p-badges"><span class="badge b-green">Available</span></div>
@@ -930,7 +932,8 @@ function openModal(id){
   if(img){
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
     for(let i=1;i<=img.count;i++){
-      imgHtml+=`<img src="Images/${img.folder}_${i}.${ img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg'}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
+      const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
+      imgHtml+=`<img src="Images/${img.folder}_${i}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
     }
     imgHtml+=`</div>`;
     if(img.count>1){

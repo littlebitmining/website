@@ -960,17 +960,22 @@ let galleryState={currentImage:1,totalImages:4};
 
 function updateGallery(){
   const {currentImage,totalImages}=galleryState;
-  // Show only the image at current position
-  for(let i=1;i<=totalImages;i++){
-    const img=document.getElementById(`img-${i}`);
-    const dot=document.getElementById(`dot-${i}`);
-    if(img){
-      img.style.display=i===currentImage?'block':'none';
-    }
-    if(dot){
-      dot.style.background=i===currentImage?'var(--accent)':'rgba(0,0,0,0.3)';
-    }
-  }
+  // Show only the image at current position using data attribute (safer than ID)
+  const gallery=document.getElementById('imgGallery');
+  if(!gallery)return;
+  
+  const imgs=gallery.querySelectorAll('img');
+  const dotsContainer=gallery.nextElementSibling;
+  if(!dotsContainer)return;
+  const dots=dotsContainer.querySelectorAll('button');
+  
+  imgs.forEach((img,idx)=>{
+    img.style.display=(idx+1)===currentImage?'block':'none';
+  });
+  
+  dots.forEach((dot,idx)=>{
+    dot.style.background=(idx+1)===currentImage?'var(--accent)':'rgba(0,0,0,0.3)';
+  });
 }
 
 function showImg(n){
@@ -1007,11 +1012,10 @@ function openModal(id){
     // Image gallery - load only as many images as count specifies
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
     for(let i=1;i<=img.count;i++){
-      // Try jpg first, fallback to png
+      // Try jpg first, fallback to png - no IDs to avoid conflicts between modals
       imgHtml+=`<img src="Images/${img.folder}_${i}.jpg" 
                      alt="Product image ${i}" 
                      style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" 
-                     id="img-${i}"
                      onerror="if(this.src.endsWith('.jpg'))this.src='Images/${img.folder}_${i}.png'">`;
     }
     imgHtml+=`</div>`;
@@ -1021,10 +1025,10 @@ function openModal(id){
     
     imgHtml+=`</div>`;
     
-    // Dots navigation - only create as many dots as images exist
+    // Dots navigation - only create as many dots as images exist (no IDs to avoid conflicts)
     imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
     for(let i=1;i<=img.count;i++){
-      imgHtml+=`<button onclick="showImg(${i})" style="width:10px;height:10px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;" id="dot-${i}"></button>`;
+      imgHtml+=`<button onclick="showImg(${i})" style="width:10px;height:10px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;"></button>`;
     }
     imgHtml+=`</div>`;
     
@@ -1072,17 +1076,6 @@ function selV(i,id){
   document.querySelectorAll('#vPills .v-pill').forEach((p,j)=>p.classList.toggle('selected',j===i));
   const pe=document.getElementById('mPrice');if(pe)pe.textContent=v.price;
   const be=document.getElementById('mWaBtn');if(be)be.href=wa(v.msg);
-}
-
-function showImg(n){
-  const gallery=document.getElementById('imgGallery');
-  if(!gallery)return;
-  const imgs=gallery.querySelectorAll('img');
-  const dots=document.querySelectorAll('[id^="dot-"]');
-  imgs.forEach(img=>img.style.display='none');
-  dots.forEach(dot=>dot.style.background='rgba(255,255,255,0.3)');
-  if(imgs[n-1]){imgs[n-1].style.display='block';}
-  if(dots[n-1]){dots[n-1].style.background='var(--accent)';}
 }
 
 function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow=''}

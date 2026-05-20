@@ -84,12 +84,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(8,13,20,0.92);backdrop-fil
 
 /* BADGES */
 .p-badges{position:absolute;top:10px;left:10px;display:flex;flex-wrap:wrap;gap:5px;z-index:1}
-.badge{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
-.b-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(16,185,129,0.25)}
-.b-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
-.b-blue{background:var(--accent-dim);color:var(--accent-2);border:1px solid rgba(46,127,232,0.25)}
-.b-red{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
-.b-purple{background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.25)}
+.badge{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:4px 10px;border-radius:4px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);box-shadow:0 2px 8px rgba(0,0,0,0.25)}
+.b-green{background:rgba(16,185,129,0.95);color:var(--white)}
+.b-amber{background:rgba(245,158,11,0.95);color:var(--white)}
+.b-blue{background:rgba(46,127,232,0.95);color:var(--white)}
+.b-red{background:rgba(239,68,68,0.95);color:var(--white)}
+.b-purple{background:rgba(139,92,246,0.95);color:var(--white)}
 
 /* CARD BODY */
 .p-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
@@ -124,7 +124,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(8,13,20,0.92);backdrop-fil
 .modal-img-side{background:#ffffff;border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;min-height:320px;position:relative}
 .modal-img-side img{max-height:280px;object-fit:contain;padding:8px}
 .modal-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--t3)}
-.modal-badges{display:flex;gap:6px;flex-wrap:wrap;position:absolute;top:16px;left:16px}
+.modal-badges{display:flex;gap:6px;flex-wrap:wrap;position:absolute;top:16px;left:16px;z-index:10}
 .modal-info-side{padding:36px;overflow-y:auto;max-height:80vh}
 .modal-brand{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
 .modal-name{font-size:clamp(18px,2.5vw,24px);font-weight:400;color:var(--white);letter-spacing:-0.01em;margin-bottom:10px;line-height:1.25}
@@ -948,6 +948,18 @@ function loadCardImages(){
 }
 document.addEventListener('DOMContentLoaded',loadCardImages);
 
+// SHOW IMAGE WITH LOOPING (for modal gallery)
+function showImg(n,maxCount=4){
+  // Use modulo to loop: if n > maxCount, wrap back to 1
+  const actualImageNum=((n-1)%maxCount)+1;
+  for(let i=1;i<=maxCount;i++){
+    const img=document.getElementById(`img-${i}`);
+    const dot=document.getElementById(`dot-${i}`);
+    if(img)img.style.display=i===actualImageNum?'block':'none';
+    if(dot)dot.style.background=i===actualImageNum?'var(--accent)':'rgba(0,0,0,0.3)';
+  }
+}
+
 // MODAL
 function openModal(id){
   const p=products[id];
@@ -958,18 +970,20 @@ function openModal(id){
   const img=imageMap[id];
   if(img){
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
-    for(let i=1;i<=img.count;i++){
+    // Generate 5 image slots but only load up to img.count
+    for(let i=1;i<=5;i++){
       const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
-      imgHtml+=`<img src="Images/${img.folder}_${i}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
+      // Use modulo looping: if we want image 4 but only have 3, show image 1 instead
+      const actualNum=((i-1)%img.count)+1;
+      imgHtml+=`<img src="Images/${img.folder}_${actualNum}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
     }
     imgHtml+=`</div>`;
-    if(img.count>1){
-      imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
-      for(let i=1;i<=img.count;i++){
-        imgHtml+=`<button onclick="showImg(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(255,255,255,0.3)'};border:none;cursor:pointer;" id="dot-${i}"></button>`;
-      }
-      imgHtml+=`</div>`;
+    imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
+    // Always show 5 dots for consistency, but they loop through available images
+    for(let i=1;i<=5;i++){
+      imgHtml+=`<button onclick="showImg(${i},5)" style="width:8px;height:8px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;" id="dot-${i}"></button>`;
     }
+    imgHtml+=`</div>`;
   }else{
     imgHtml+=`<div class="modal-img-placeholder">
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="0.8" width="80" height="80" opacity="0.18"><rect x="4" y="16" width="56" height="38" rx="4"/><rect x="12" y="24" width="40" height="22" rx="2"/><line x1="20" y1="10" x2="20" y2="16"/><line x1="44" y1="10" x2="44" y2="16"/></svg>

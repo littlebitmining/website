@@ -964,15 +964,15 @@ function handleImageError(imgEl, folder, index){
   if(imgEl.src.endsWith('.jpg')){
     imgEl.src=`Images/${folder}_${index}.png`;
     imgEl.onerror=function(){
-      // Both jpg and png failed, hide this image
-      imgEl.style.display='none';
+      // Both jpg and png failed, mark as failed
+      imgEl.dataset.loadFailed='true';
       // Delay dots update to allow other images to finish loading
       clearTimeout(imageLoadingTimeout);
       imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
     };
   }else{
-    // png also failed, hide this image
-    imgEl.style.display='none';
+    // png also failed, mark as failed
+    imgEl.dataset.loadFailed='true';
     // Delay dots update to allow other images to finish loading
     clearTimeout(imageLoadingTimeout);
     imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
@@ -981,39 +981,42 @@ function handleImageError(imgEl, folder, index){
 
 // When an image successfully loads, track it
 function handleImageLoad(imgEl){
-  imgEl.style.display='block'; // Make sure successful images are visible
+  imgEl.dataset.loadFailed='false';
   // Delay dots update to allow other images to finish loading
   clearTimeout(imageLoadingTimeout);
   imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
 }
 
-// Update dots based on actual visible images
+// Update dots based on images that loaded successfully
 function updateDotsAfterImageLoad(){
   const gallery=document.getElementById('imgGallery');
   const dotsContainer=document.getElementById('dotsContainer');
   if(!gallery || !dotsContainer)return;
   
-  const visibleImages=Array.from(gallery.querySelectorAll('img')).filter(img=>img.style.display!=='none');
-  const totalVisible=visibleImages.length;
+  // Get all images that loaded successfully (data-load-failed is not 'true')
+  const allImages=Array.from(gallery.querySelectorAll('img'));
+  const loadedImages=allImages.filter(img=>img.dataset.loadFailed!=='true');
   
-  if(totalVisible===0)return;
+  const totalLoaded=loadedImages.length;
+  
+  if(totalLoaded===0)return;
   
   // Clear existing dots
   dotsContainer.innerHTML='';
   
-  // Create dots for each visible image
-  for(let i=0;i<totalVisible;i++){
+  // Create dots for each loaded image
+  for(let i=0;i<totalLoaded;i++){
     const dot=document.createElement('button');
     dot.onclick=()=>showImg(i+1);
     // First dot is selected (blue), rest are unselected (dark gray)
     const bgColor=i===0?'#2E7FE8':'rgba(0,0,0,0.3)';
     dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${bgColor};border:none;cursor:pointer;transition:background 0.2s;`;
-    dot.dataset.dotIndex=i+1; // Track which image this dot represents
+    dot.dataset.dotIndex=i+1;
     dotsContainer.appendChild(dot);
   }
   
   // Update gallery state
-  galleryState={currentImage:1,totalImages:totalVisible};
+  galleryState={currentImage:1,totalImages:totalLoaded};
 }
 
 function updateGallery(){
@@ -1023,7 +1026,8 @@ function updateGallery(){
   if(!gallery)return;
   
   const allimgs=gallery.querySelectorAll('img');
-  const visibleImgs=Array.from(allimgs).filter(img=>img.style.display!=='none' || img.dataset.imageIndex); // Get all that could be visible
+  // Get only images that loaded successfully (not failed)
+  const loadedImgs=Array.from(allimgs).filter(img=>img.dataset.loadFailed!=='true');
   const dotsContainer=gallery.nextElementSibling;
   if(!dotsContainer)return;
   const dots=dotsContainer.querySelectorAll('button');
@@ -1033,9 +1037,9 @@ function updateGallery(){
     img.style.display='none';
   });
   
-  // Show the current image based on its position among visible images
-  if(currentImage > 0 && currentImage <= visibleImgs.length){
-    visibleImgs[currentImage-1].style.display='block';
+  // Show the current image based on its position among loaded images
+  if(currentImage > 0 && currentImage <= loadedImgs.length){
+    loadedImgs[currentImage-1].style.display='block';
   }
   
   // Update dots - selected dot is blue (#2E7FE8), unselected is dark gray

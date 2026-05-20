@@ -927,23 +927,25 @@ function loadCardImages(){
     const modalId=card.getAttribute('onclick').match(/'([^']+)'/)[1];
     const img=imageMap[modalId];
     if(img){
-      // Determine extension: PNG for u3s23 and antrack_v2, JPG for all others
-      const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
-      const imgUrl=`Images/${img.folder}_1.${ext}`;
       const imgWrap=card.querySelector('.p-img-wrap');
       if(imgWrap){
         const placeholder=imgWrap.querySelector('.p-img-placeholder');
         if(placeholder){
           const imgElement=document.createElement('img');
-          imgElement.src=imgUrl;
           imgElement.alt='Product image';
           imgElement.style.width='100%';
           imgElement.style.height='100%';
           imgElement.style.objectFit='contain';
           imgElement.style.padding='16px';
-          // Add error handling for missing images
+          
+          // Try to load image - browser will handle jpg or png automatically
+          imgElement.src=`Images/${img.folder}_1.jpg`;
+          
+          // If jpg fails, try png
           imgElement.onerror=function(){
-            console.warn(`Image not found: ${imgUrl}`);
+            if(imgElement.src.endsWith('.jpg')){
+              imgElement.src=`Images/${img.folder}_1.png`;
+            }
           };
           placeholder.replaceWith(imgElement);
         }
@@ -1027,16 +1029,18 @@ function openModal(id){
     
     // Image gallery
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
-    // Load ONLY the actual images available
-    for(let i=1;i<=img.count;i++){
-      const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
-      imgHtml+=`<img src="Images/${img.folder}_${i}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
-    }
-    // Create placeholder slots for looping (if less than 5 images)
-    for(let i=img.count+1;i<=5;i++){
-      const loopNum=((i-1)%img.count)+1;
-      const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
-      imgHtml+=`<img src="Images/${img.folder}_${loopNum}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:none;width:100%;" id="img-${i}">`;
+    
+    // Generate 5 image slots
+    for(let i=1;i<=5;i++){
+      // For looping: if image number exceeds actual count, loop back
+      const actualNum=((i-1)%img.count)+1;
+      
+      // Create image that tries jpg first, then png
+      imgHtml+=`<img src="Images/${img.folder}_${actualNum}.jpg" 
+                     alt="Product image ${i}" 
+                     style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" 
+                     id="img-${i}"
+                     onerror="this.src='Images/${img.folder}_${actualNum}.png'">`;
     }
     imgHtml+=`</div>`;
     

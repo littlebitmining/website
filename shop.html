@@ -927,6 +927,7 @@ function loadCardImages(){
     const modalId=card.getAttribute('onclick').match(/'([^']+)'/)[1];
     const img=imageMap[modalId];
     if(img){
+      // Determine extension: PNG for u3s23 and antrack_v2, JPG for all others
       const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
       const imgUrl=`Images/${img.folder}_1.${ext}`;
       const imgWrap=card.querySelector('.p-img-wrap');
@@ -940,6 +941,10 @@ function loadCardImages(){
           imgElement.style.height='100%';
           imgElement.style.objectFit='contain';
           imgElement.style.padding='16px';
+          // Add error handling for missing images
+          imgElement.onerror=function(){
+            console.warn(`Image not found: ${imgUrl}`);
+          };
           placeholder.replaceWith(imgElement);
         }
       }
@@ -950,6 +955,19 @@ document.addEventListener('DOMContentLoaded',loadCardImages);
 
 // GALLERY STATE AND NAVIGATION
 let galleryState={currentImage:1,totalImages:4};
+
+// IMAGE DIAGNOSTICS - Run in browser console to check which images are missing
+function checkImages(){
+  const results={present:[],missing:[]};
+  document.querySelectorAll('img[id^="img-"]').forEach(img=>{
+    const src=img.src;
+    fetch(src,{method:'HEAD'}).then(r=>{
+      if(r.ok)results.present.push(src);
+      else results.missing.push(src);
+    }).catch(()=>results.missing.push(src));
+  });
+  setTimeout(()=>console.log('Images Check:',results),500);
+}
 
 function updateGallery(){
   const {currentImage,totalImages}=galleryState;

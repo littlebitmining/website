@@ -948,16 +948,38 @@ function loadCardImages(){
 }
 document.addEventListener('DOMContentLoaded',loadCardImages);
 
-// SHOW IMAGE WITH LOOPING (for modal gallery)
-function showImg(n,maxCount=4){
-  // Use modulo to loop: if n > maxCount, wrap back to 1
-  const actualImageNum=((n-1)%maxCount)+1;
-  for(let i=1;i<=maxCount;i++){
+// GALLERY STATE AND NAVIGATION
+let galleryState={currentImage:1,totalImages:4};
+
+function updateGallery(){
+  const {currentImage,totalImages}=galleryState;
+  for(let i=1;i<=5;i++){
     const img=document.getElementById(`img-${i}`);
     const dot=document.getElementById(`dot-${i}`);
-    if(img)img.style.display=i===actualImageNum?'block':'none';
-    if(dot)dot.style.background=i===actualImageNum?'var(--accent)':'rgba(0,0,0,0.3)';
+    if(img){
+      // Calculate which actual image to show with looping
+      const actualNum=((currentImage-1+i-1)%totalImages)+1;
+      img.style.display=i===currentImage?'block':'none';
+    }
+    if(dot){
+      dot.style.background=i===currentImage?'var(--accent)':'rgba(0,0,0,0.3)';
+    }
   }
+}
+
+function showImg(n){
+  galleryState.currentImage=n;
+  updateGallery();
+}
+
+function nextImage(){
+  galleryState.currentImage=galleryState.currentImage===5?1:galleryState.currentImage+1;
+  updateGallery();
+}
+
+function prevImage(){
+  galleryState.currentImage=galleryState.currentImage===1?5:galleryState.currentImage-1;
+  updateGallery();
 }
 
 // MODAL
@@ -969,19 +991,32 @@ function openModal(id){
   let imgHtml=`<div class="modal-badges">${p.badges.map(b=>`<span class="badge ${b[0]}">${b[1]}</span>`).join('')}</div>`;
   const img=imageMap[id];
   if(img){
+    // Initialize gallery state
+    galleryState={currentImage:1,totalImages:img.count};
+    
+    imgHtml+=`<div style="position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:280px;">`;
+    
+    // Left arrow
+    imgHtml+=`<button onclick="prevImage()" style="position:absolute;left:10px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:5;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">❮</button>`;
+    
+    // Image gallery
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
-    // Generate 5 image slots but only load up to img.count
     for(let i=1;i<=5;i++){
       const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
-      // Use modulo looping: if we want image 4 but only have 3, show image 1 instead
       const actualNum=((i-1)%img.count)+1;
       imgHtml+=`<img src="Images/${img.folder}_${actualNum}.${ext}" alt="Product image ${i}" style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" id="img-${i}">`;
     }
     imgHtml+=`</div>`;
+    
+    // Right arrow
+    imgHtml+=`<button onclick="nextImage()" style="position:absolute;right:10px;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:5;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">❯</button>`;
+    
+    imgHtml+=`</div>`;
+    
+    // Dots navigation
     imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
-    // Always show 5 dots for consistency, but they loop through available images
     for(let i=1;i<=5;i++){
-      imgHtml+=`<button onclick="showImg(${i},5)" style="width:8px;height:8px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;" id="dot-${i}"></button>`;
+      imgHtml+=`<button onclick="showImg(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;" id="dot-${i}"></button>`;
     }
     imgHtml+=`</div>`;
   }else{

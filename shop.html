@@ -958,38 +958,16 @@ document.addEventListener('DOMContentLoaded',loadCardImages);
 // GALLERY STATE AND NAVIGATION
 let galleryState={currentImage:1,totalImages:4};
 
-// IMAGE DIAGNOSTICS - Run in browser console to check which images are missing
-function checkImages(){
-  const results={present:[],missing:[]};
-  document.querySelectorAll('img[id^="img-"]').forEach(img=>{
-    const src=img.src;
-    fetch(src,{method:'HEAD'}).then(r=>{
-      if(r.ok)results.present.push(src);
-      else results.missing.push(src);
-    }).catch(()=>results.missing.push(src));
-  });
-  setTimeout(()=>console.log('Images Check:',results),500);
-}
-
 function updateGallery(){
   const {currentImage,totalImages}=galleryState;
-  // Show correct image based on currentImage (1-5)
-  // If only 2 images: 1,2,1,2,1 pattern
-  // If 3 images: 1,2,3,1,2 pattern
-  // If 4 images: 1,2,3,4,1 pattern
-  for(let i=1;i<=5;i++){
+  // Show only the image at current position
+  for(let i=1;i<=totalImages;i++){
     const img=document.getElementById(`img-${i}`);
     const dot=document.getElementById(`dot-${i}`);
     if(img){
-      // Show image only if this slot matches current selection
-      if(i===currentImage){
-        img.style.display='block';
-      }else{
-        img.style.display='none';
-      }
+      img.style.display=i===currentImage?'block':'none';
     }
     if(dot){
-      // Color dot based on current selection
       dot.style.background=i===currentImage?'var(--accent)':'rgba(0,0,0,0.3)';
     }
   }
@@ -1001,12 +979,14 @@ function showImg(n){
 }
 
 function nextImage(){
-  galleryState.currentImage=galleryState.currentImage===5?1:galleryState.currentImage+1;
+  const maxImages=galleryState.totalImages;
+  galleryState.currentImage=galleryState.currentImage===maxImages?1:galleryState.currentImage+1;
   updateGallery();
 }
 
 function prevImage(){
-  galleryState.currentImage=galleryState.currentImage===1?5:galleryState.currentImage-1;
+  const maxImages=galleryState.totalImages;
+  galleryState.currentImage=galleryState.currentImage===1?maxImages:galleryState.currentImage-1;
   updateGallery();
 }
 
@@ -1019,28 +999,20 @@ function openModal(id){
   let imgHtml=`<div class="modal-badges">${p.badges.map(b=>`<span class="badge ${b[0]}">${b[1]}</span>`).join('')}</div>`;
   const img=imageMap[id];
   if(img){
-    // Initialize gallery state with actual image count
-    galleryState={currentImage:1,totalImages:img.count};
-    
     imgHtml+=`<div style="position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:280px;">`;
     
     // Left arrow - DARK BACKGROUND
     imgHtml+=`<button onclick="prevImage()" style="position:absolute;left:10px;background:rgba(0,0,0,0.5);border:1px solid rgba(0,0,0,0.7);color:#ffffff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:5;font-weight:bold;" onmouseover="this.style.background='rgba(0,0,0,0.8)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">❮</button>`;
     
-    // Image gallery
+    // Image gallery - load only as many images as count specifies
     imgHtml+=`<div id="imgGallery" style="width:100%;text-align:center;position:relative;">`;
-    
-    // Generate 5 image slots
-    for(let i=1;i<=5;i++){
-      // For looping: if image number exceeds actual count, loop back
-      const actualNum=((i-1)%img.count)+1;
-      
-      // Create image that tries jpg first, then png
-      imgHtml+=`<img src="Images/${img.folder}_${actualNum}.jpg" 
+    for(let i=1;i<=img.count;i++){
+      // Try jpg first, fallback to png
+      imgHtml+=`<img src="Images/${img.folder}_${i}.jpg" 
                      alt="Product image ${i}" 
                      style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" 
                      id="img-${i}"
-                     onerror="this.src='Images/${img.folder}_${actualNum}.png'">`;
+                     onerror="if(this.src.endsWith('.jpg'))this.src='Images/${img.folder}_${i}.png'">`;
     }
     imgHtml+=`</div>`;
     
@@ -1049,12 +1021,15 @@ function openModal(id){
     
     imgHtml+=`</div>`;
     
-    // Dots navigation
+    // Dots navigation - only create as many dots as images exist
     imgHtml+=`<div style="margin-top:10px;display:flex;justify-content:center;gap:8px;">`;
-    for(let i=1;i<=5;i++){
+    for(let i=1;i<=img.count;i++){
       imgHtml+=`<button onclick="showImg(${i})" style="width:10px;height:10px;border-radius:50%;background:${i===1?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;" id="dot-${i}"></button>`;
     }
     imgHtml+=`</div>`;
+    
+    // Initialize gallery state with actual count
+    galleryState={currentImage:1,totalImages:img.count};
   }else{
     imgHtml+=`<div class="modal-img-placeholder">
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="0.8" width="80" height="80" opacity="0.18"><rect x="4" y="16" width="56" height="38" rx="4"/><rect x="12" y="24" width="40" height="22" rx="2"/><line x1="20" y1="10" x2="20" y2="16"/><line x1="44" y1="10" x2="44" y2="16"/></svg>

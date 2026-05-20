@@ -75,8 +75,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(8,13,20,0.92);backdrop-fil
 .p-card:hover{border-color:rgba(46,127,232,0.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(46,127,232,0.1)}
 
 /* PRODUCT IMAGE */
-.p-img-wrap{width:100%;aspect-ratio:16/10;background:var(--bg-2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.p-img-wrap img{width:100%;height:100%;object-fit:contain;padding:20px;transition:transform 0.3s}
+.p-img-wrap{width:100%;aspect-ratio:16/10;background:#ffffff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.p-img-wrap img{width:100%;height:100%;object-fit:contain;padding:16px;transition:transform 0.3s}
 .p-card:hover .p-img-wrap img{transform:scale(1.04)}
 .p-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--t3);width:100%;height:100%}
 .p-img-placeholder svg{opacity:0.2}
@@ -121,8 +121,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(8,13,20,0.92);backdrop-fil
 .modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid var(--border);color:var(--t2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.15s;z-index:10}
 .modal-close:hover{background:rgba(255,255,255,0.1);color:var(--t1)}
 .modal-grid{display:grid;grid-template-columns:1fr 1fr}
-.modal-img-side{background:var(--bg-3);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;min-height:320px;position:relative}
-.modal-img-side img{max-height:280px;object-fit:contain}
+.modal-img-side{background:#ffffff;border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;min-height:320px;position:relative}
+.modal-img-side img{max-height:280px;object-fit:contain;padding:8px}
 .modal-img-placeholder{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--t3)}
 .modal-badges{display:flex;gap:6px;flex-wrap:wrap;position:absolute;top:16px;left:16px}
 .modal-info-side{padding:36px;overflow-y:auto;max-height:80vh}
@@ -920,6 +920,33 @@ const imageMap={
   'silencerkit':{'folder':'silencer_kit','count':2},
   'hashboard':{'folder':'hashboard','count':4}
 };
+
+// LOAD CARD IMAGES ON PAGE LOAD
+function loadCardImages(){
+  document.querySelectorAll('.p-card').forEach(card=>{
+    const modalId=card.getAttribute('onclick').match(/'([^']+)'/)[1];
+    const img=imageMap[modalId];
+    if(img){
+      const ext=img.folder.includes('u3s23')||img.folder.includes('antrack_v2')?'png':'jpg';
+      const imgUrl=`Images/${img.folder}_1.${ext}`;
+      const imgWrap=card.querySelector('.p-img-wrap');
+      if(imgWrap){
+        const placeholder=imgWrap.querySelector('.p-img-placeholder');
+        if(placeholder){
+          const imgElement=document.createElement('img');
+          imgElement.src=imgUrl;
+          imgElement.alt='Product image';
+          imgElement.style.width='100%';
+          imgElement.style.height='100%';
+          imgElement.style.objectFit='contain';
+          imgElement.style.padding='16px';
+          placeholder.replaceWith(imgElement);
+        }
+      }
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded',loadCardImages);
 
 // MODAL
 function openModal(id){

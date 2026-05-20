@@ -959,19 +959,32 @@ document.addEventListener('DOMContentLoaded',loadCardImages);
 let galleryState={currentImage:1,totalImages:4};
 
 // Handle image loading errors - try png if jpg fails, then hide if both fail
+let imageLoadingTimeout;
 function handleImageError(imgEl, folder, index){
   if(imgEl.src.endsWith('.jpg')){
     imgEl.src=`Images/${folder}_${index}.png`;
     imgEl.onerror=function(){
       // Both jpg and png failed, hide this image
       imgEl.style.display='none';
-      updateDotsAfterImageLoad();
+      // Delay dots update to allow other images to finish loading
+      clearTimeout(imageLoadingTimeout);
+      imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
     };
   }else{
     // png also failed, hide this image
     imgEl.style.display='none';
-    updateDotsAfterImageLoad();
+    // Delay dots update to allow other images to finish loading
+    clearTimeout(imageLoadingTimeout);
+    imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
   }
+}
+
+// When an image successfully loads, track it
+function handleImageLoad(imgEl){
+  imgEl.style.display='block'; // Make sure successful images are visible
+  // Delay dots update to allow other images to finish loading
+  clearTimeout(imageLoadingTimeout);
+  imageLoadingTimeout=setTimeout(updateDotsAfterImageLoad, 100);
 }
 
 // Update dots based on actual visible images
@@ -992,7 +1005,10 @@ function updateDotsAfterImageLoad(){
   for(let i=0;i<totalVisible;i++){
     const dot=document.createElement('button');
     dot.onclick=()=>showImg(i+1);
-    dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${i===0?'var(--accent)':'rgba(0,0,0,0.3)'};border:none;cursor:pointer;transition:background 0.2s;`;
+    // First dot is selected (blue), rest are unselected (dark gray)
+    const bgColor=i===0?'#2E7FE8':'rgba(0,0,0,0.3)';
+    dot.style.cssText=`width:10px;height:10px;border-radius:50%;background:${bgColor};border:none;cursor:pointer;transition:background 0.2s;`;
+    dot.dataset.dotIndex=i+1; // Track which image this dot represents
     dotsContainer.appendChild(dot);
   }
   
@@ -1002,21 +1018,30 @@ function updateDotsAfterImageLoad(){
 
 function updateGallery(){
   const {currentImage,totalImages}=galleryState;
-  // Show only the image at current position using data attribute (safer than ID)
+  // Show only the image at current position
   const gallery=document.getElementById('imgGallery');
   if(!gallery)return;
   
-  const imgs=gallery.querySelectorAll('img');
+  const allimgs=gallery.querySelectorAll('img');
+  const visibleImgs=Array.from(allimgs).filter(img=>img.style.display!=='none' || img.dataset.imageIndex); // Get all that could be visible
   const dotsContainer=gallery.nextElementSibling;
   if(!dotsContainer)return;
   const dots=dotsContainer.querySelectorAll('button');
   
-  imgs.forEach((img,idx)=>{
-    img.style.display=(idx+1)===currentImage?'block':'none';
+  // Hide all images first
+  allimgs.forEach(img=>{
+    img.style.display='none';
   });
   
+  // Show the current image based on its position among visible images
+  if(currentImage > 0 && currentImage <= visibleImgs.length){
+    visibleImgs[currentImage-1].style.display='block';
+  }
+  
+  // Update dots - selected dot is blue (#2E7FE8), unselected is dark gray
   dots.forEach((dot,idx)=>{
-    dot.style.background=(idx+1)===currentImage?'var(--accent)':'rgba(0,0,0,0.3)';
+    const isSelected=(idx+1)===currentImage;
+    dot.style.background=isSelected?'#2E7FE8':'rgba(0,0,0,0.3)';
   });
 }
 
@@ -1060,6 +1085,7 @@ function openModal(id){
                      alt="Product image ${i}" 
                      style="max-height:280px;object-fit:contain;margin:10px auto;display:${i===1?'block':'none'};width:100%;" 
                      data-image-index="${i}"
+                     onload="handleImageLoad(this)"
                      onerror="handleImageError(this, '${img.folder}', ${i})">`;
     }
     imgHtml+=`</div>`;
